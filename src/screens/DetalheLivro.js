@@ -16,17 +16,54 @@ export default function DetalheLivro({ route }) {
   const [feedback, setFeedback] = useState(null);
 
   const carregar = useCallback(async () => {
-    // TODO: chamar buscarLivroPorId(livroId) e atualizar os estados livro, carregando e erro
+    setCarregando(true)
+    setErro(null)
+    try {
+      const dados = await buscarLivroPorId(livroId)
+      setLivro(dados)
+    } catch (e) {
+      setErro(e.message)
+    } finally {
+      setCarregando(false)
+    }
   }, [livroId]);
 
   useEffect(() => {
     carregar();
   }, [carregar]);
 
-  async function handleAdicionarFavorito() {
-    // TODO: chamar adicionarFavorito(livro.id, '') e tratar os estados adicionando, jaFavoritado e feedback
-  }
+async function handleAdicionarFavorito() {
+  setAdicionando(true);
+  setFeedback(null);
 
+  try {
+    await adicionarFavorito(livro.id, '');
+
+    setJaFavoritado(true);
+
+    setFeedback({
+      tipo: 'sucesso',
+      texto: 'Livro adicionado aos favoritos!'
+    });
+  } catch (e) {
+    if (e.status === 409) {
+      setJaFavoritado(true);
+
+      setFeedback({
+        tipo: 'erro',
+        texto: 'Este livro já está nos seus favoritos.'
+      });
+    } else {
+      setFeedback({
+        tipo: 'erro',
+        texto: 'Erro ao adicionar aos favoritos. Tente novamente.'
+      });
+    }
+  } finally {
+    setAdicionando(false);
+    setTimeout (() => setFeedback(null), 3000)
+  }
+}
   if (carregando) {
     return (
       <View style={[styles.centrado, { backgroundColor: cores.background }]}>

@@ -25,32 +25,71 @@ export default function Favoritos() {
   const [erro, setErro] = useState(null);
 
   const carregar = useCallback(async () => {
-    // TODO: chamar listarFavoritos() e atualizar os estados favoritos, carregando e erro
+    setCarregando(true);
+    setErro(null);
+
+    try {
+      const dados = await listarFavoritos();
+      setFavoritos(dados);
+    } catch (e) {
+      setErro(e.message || "Erro ao carregar favoritos.");
+    } finally {
+      setCarregando(false);
+    }
   }, []);
 
-  // useFocusEffect: roda toda vez que a aba ganha foco, nao apenas na montagem.
-  // Isso garante que a lista atualize ao voltar da tela de detalhes.
-  // useCallback envolve o callback para evitar que o effect rode em loop.
-  // O callback nao pode ser async — funcoes async retornam Promise, causando erro.
+  // useFocusEffect: roda toda vez que a aba ganha foco.
+  // Isso garante que a lista seja atualizada ao voltar da tela de detalhes.
   useFocusEffect(
     useCallback(() => {
       carregar();
-    }, [carregar]),
+    }, [carregar])
   );
 
   async function handleEditar(id, observacao) {
-    // TODO: chamar editarFavorito(id, observacao) e atualizar o item no estado favoritos
+      const atualizado = await editarFavorito(id, observacao);
+
+      setFavoritos((listaAtual) =>
+        listaAtual.map((favorito) =>
+          favorito.id === id ? {...favoritos, observacao: atualizado.observacao} : favorito
+        )
+      );
   }
 
   async function handleRemover(id) {
-    // TODO: chamar removerFavorito(id) e retirar o item do estado favoritos
+    try {
+      await removerFavorito(id);
+
+      setFavoritos((listaAtual) =>
+        listaAtual.filter((favorito) => favorito.id !== id)
+      );
+    } catch (e) {
+      Alert.alert(
+        "Erro",
+        e.message
+      );
+    }
   }
 
   if (carregando) {
     return (
-      <View style={[styles.centrado, { backgroundColor: cores.background }]}>
-        <ActivityIndicator size="large" color={cores.primary} />
-        <Text style={[styles.textoCentro, { color: cores.textSecondary }]}>
+      <View
+        style={[
+          styles.centrado,
+          { backgroundColor: cores.background },
+        ]}
+      >
+        <ActivityIndicator
+          size="large"
+          color={cores.primary}
+        />
+
+        <Text
+          style={[
+            styles.textoCentro,
+            { color: cores.textSecondary },
+          ]}
+        >
           Carregando favoritos...
         </Text>
       </View>
@@ -59,15 +98,34 @@ export default function Favoritos() {
 
   if (erro) {
     return (
-      <View style={[styles.centrado, { backgroundColor: cores.background }]}>
-        <Text style={[styles.textoCentro, { color: cores.error }]}>
+      <View
+        style={[
+          styles.centrado,
+          { backgroundColor: cores.background },
+        ]}
+      >
+        <Text
+          style={[
+            styles.textoCentro,
+            { color: cores.error },
+          ]}
+        >
           Erro: {erro}
         </Text>
+
         <TouchableOpacity
-          style={[styles.botaoTentar, { backgroundColor: cores.primary }]}
+          style={[
+            styles.botaoTentar,
+            { backgroundColor: cores.primary },
+          ]}
           onPress={carregar}
         >
-          <Text style={{ color: cores.primaryText, fontWeight: "600" }}>
+          <Text
+            style={{
+              color: cores.primaryText,
+              fontWeight: "600",
+            }}
+          >
             Tentar novamente
           </Text>
         </TouchableOpacity>
@@ -77,17 +135,31 @@ export default function Favoritos() {
 
   if (favoritos.length === 0) {
     return (
-      <View style={[styles.centrado, { backgroundColor: cores.background }]}>
-        <Text style={[styles.textoCentro, { color: cores.textSecondary }]}>
-          Nenhum favorito ainda.{"\n"}Implemente listarFavoritos() em
-          services/api.js
+      <View
+        style={[
+          styles.centrado,
+          { backgroundColor: cores.background },
+        ]}
+      >
+        <Text
+          style={[
+            styles.textoCentro,
+            { color: cores.textSecondary },
+          ]}
+        >
+          Nenhum favorito ainda.
         </Text>
       </View>
     );
   }
 
   return (
-    <View style={[styles.container, { backgroundColor: cores.background }]}>
+    <View
+      style={[
+        styles.container,
+        { backgroundColor: cores.background },
+      ]}
+    >
       <FlatList
         data={favoritos}
         keyExtractor={(item) => String(item.id)}
@@ -107,7 +179,10 @@ export default function Favoritos() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: {
+    flex: 1,
+  },
+
   centrado: {
     flex: 1,
     alignItems: "center",
@@ -115,15 +190,18 @@ const styles = StyleSheet.create({
     gap: 16,
     padding: 24,
   },
+
   lista: {
     padding: 16,
     gap: 12,
   },
+
   textoCentro: {
     fontSize: 15,
     textAlign: "center",
     lineHeight: 22,
   },
+
   botaoTentar: {
     paddingHorizontal: 24,
     paddingVertical: 12,

@@ -1,0 +1,59 @@
+{"_e":"root:init","_t":1790874369737,"format":"v0-jsonl","version":"57.0.24"}
+{"_e":"env:mode","_t":1790874369751,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1790874369782,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1790874372933,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1790874378236,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1790874381543,"plugins":[]}
+{"_e":"metro:instantiate","_t":1790874404161,"atlas":false,"workers":13,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1790874719416,"id":"2","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1790874719417,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1790874719514,"id":"2","total":1,"ms":97.1319}
+{"_e":"metro:client_log","_t":1790874755505,"level":"error","data":["adicionarFavorito:","livroId e obrigatorio"]}
+{"_e":"metro:client_log","_t":1790875174324,"level":"error","data":["adicionarFavorito:","Property 'livroId' doesn't exist"]}
+{"_e":"metro:bundling:failed","_t":1790875232322,"id":null,"message":"SyntaxError: C:\\Users\\49038706855\\Documents\\SENAI-3B\\Mobile\\Catalogo-Api\\catalogo-livros-lesson\\src\\services\\api.js: Unexpected token, expected \",\" (6:38)\n\n  4 | export async function buscarLivros() {\n  5 |   try {\n> 6 |     const response = await fetch(Erro ${BASE_URL}/livros)\n    |                                       ^\n  7 |\n  8 |     if(!response.ok){\n  9 |       throw new Error(Erro ${response.status}: falha ao buscar livros);","importStack":null,"filename":"src\\services\\api.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:client_log","_t":1790875365925,"level":"error","data":["buscarLivroPorId:","fetch failed: Call to function 'NativeRequest.start' has been rejected.\n→ Caused by: The 2nd argument cannot be cast to type class java.net.URL (received class java.lang.String)\n→ Caused by: java.net.MalformedURLException: no protocol: ({BASE_URL}/livros/){id}"]}
+{"_e":"metro:client_log","_t":1790875378429,"level":"error","data":["buscarLivroPorId:","fetch failed: Call to function 'NativeRequest.start' has been rejected.\n→ Caused by: The 2nd argument cannot be cast to type class java.net.URL (received class java.lang.String)\n→ Caused by: java.net.MalformedURLException: no protocol: ({BASE_URL}/livros/){id}"]}
+{"_e":"metro:bundling:started","_t":1790875541183,"id":"a","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1790875541184,"id":"a","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1790875541238,"id":"a","total":1,"ms":54.6819}
+{"_e":"metro:server_log","_t":1790875619500,"level":"error","data":["[timeout] connection terminated with Device for app='%s' on device='%s' after not responding for %s seconds.","host.exp.exponent","sdk_gphone64_x86_64 - 16 - API 36","60"]}
+{"_e":"metro:server_log","_t":1790875619501,"level":"error","data":["[timeout] connection terminated with Device for app='%s' on device='%s' after not responding for %s seconds.","host.exp.exponent","sdk_gphone64_x86_64 - 16 - API 36","60"]}
+{"_e":"metro:server_log","_t":1790875619501,"level":"error","data":["[timeout] connection terminated with Device for app='%s' on device='%s' after not responding for %s seconds.","host.exp.exponent","sdk_gphone64_x86_64 - 16 - API 36","60"]}
+{"_e":"metro:client_log","_t":1790875629509,"level":"error","data":["buscarLivroPorId:","fetch failed: Call to function 'NativeRequest.start' has been rejected.\n→ Caused by: The 2nd argument cannot be cast to type class java.net.URL (received class java.lang.String)\n→ Caused by: java.net.MalformedURLException: no protocol: ({BASE_URL}/livros/){id}"]}
+{"_e":"root:init","_t":1790875855965,"format":"v0-jsonl","version":"57.0.24"}
+{"_e":"env:mode","_t":1790875855980,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1790875856006,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1790875859230,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1790875863316,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1790875866617,"plugins":[]}
+{"_e":"metro:instantiate","_t":1790875885580,"atlas":false,"workers":13,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1790876021623,"id":"1","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1790876021625,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1790876021638,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1790876021745,"id":"1","progress":0.0225,"total":20,"current":3}
+{"_e":"metro:bundling:progress","_t":1790876021846,"id":"1","progress":0.027777777777777776,"total":84,"current":14}
+{"_e":"metro:bundling:progress","_t":1790876021948,"id":"1","progress":0.027777777777777776,"total":185,"current":17}
+{"_e":"metro:bundling:progress","_t":1790876022143,"id":"1","progress":0.027777777777777776,"total":185,"current":18}
+{"_e":"metro:bundling:progress","_t":1790876022243,"id":"1","progress":0.1131404958677686,"total":220,"current":74}
+{"_e":"metro:bundling:progress","_t":1790876022343,"id":"1","progress":0.12532633597954074,"total":274,"current":97}
+{"_e":"metro:bundling:progress","_t":1790876022443,"id":"1","progress":0.153981733696523,"total":316,"current":124}
+{"_e":"metro:bundling:progress","_t":1790876022543,"id":"1","progress":0.21556122448979592,"total":364,"current":169}
+{"_e":"metro:bundling:progress","_t":1790876022643,"id":"1","progress":0.24731905422592207,"total":372,"current":185}
+{"_e":"metro:bundling:progress","_t":1790876022744,"id":"1","progress":0.24731905422592207,"total":475,"current":230}
+{"_e":"metro:bundling:progress","_t":1790876022843,"id":"1","progress":0.30332763299225507,"total":532,"current":293}
+{"_e":"metro:bundling:progress","_t":1790876022952,"id":"1","progress":0.34297933038648737,"total":613,"current":359}
+{"_e":"metro:bundling:progress","_t":1790876023054,"id":"1","progress":0.34297933038648737,"total":627,"current":367}
+{"_e":"metro:bundling:progress","_t":1790876023171,"id":"1","progress":0.34447725810103047,"total":627,"current":368}
+{"_e":"metro:bundling:progress","_t":1790876023273,"id":"1","progress":0.43293170612367793,"total":652,"current":429}
+{"_e":"metro:bundling:progress","_t":1790876023373,"id":"1","progress":0.528352517625046,"total":692,"current":503}
+{"_e":"metro:bundling:progress","_t":1790876023474,"id":"1","progress":0.6181066100735917,"total":739,"current":581}
+{"_e":"metro:bundling:progress","_t":1790876023575,"id":"1","progress":0.6997760520903163,"total":783,"current":655}
+{"_e":"metro:bundling:progress","_t":1790876023674,"id":"1","progress":0.8205967802679324,"total":818,"current":741}
+{"_e":"metro:bundling:progress","_t":1790876023775,"id":"1","progress":0.8218996737064792,"total":835,"current":757}
+{"_e":"metro:bundling:progress","_t":1790876023879,"id":"1","progress":0.8218996737064792,"total":877,"current":783}
+{"_e":"metro:bundling:progress","_t":1790876023984,"id":"1","progress":0.8342578966605109,"total":912,"current":833}
+{"_e":"metro:bundling:progress","_t":1790876024087,"id":"1","progress":0.903002715489488,"total":945,"current":898}
+{"_e":"metro:bundling:progress","_t":1790876024187,"id":"1","progress":0.9365893560280254,"total":962,"current":931}
+{"_e":"metro:bundling:progress","_t":1790876024325,"id":"1","progress":0.999,"total":979,"current":979}
+{"_e":"metro:bundling:done","_t":1790876024577,"id":"1","total":979,"ms":2952.715}
+{"_e":"metro:client_log","_t":1790876034424,"level":"error","data":["buscarLivroPorId:","fetch failed: Call to function 'NativeRequest.start' has been rejected.\n→ Caused by: The 2nd argument cannot be cast to type class java.net.URL (received class java.lang.String)\n→ Caused by: java.net.MalformedURLException: no protocol: ({BASE_URL}/livros/){id}"]}
